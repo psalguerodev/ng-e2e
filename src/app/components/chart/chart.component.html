@@ -1,4 +1,4 @@
-<div class="chart-container" *ngIf="technologies.length > 0">
+<div class="chart-container animated fadeInLeft" *ngIf="technologies.length > 0 && !isLoading">
 
   <h3>Frontend</h3>
 
@@ -18,4 +18,8 @@
     (select)="onSelect($event)"
     class="my-chart">
   </ngx-charts-bar-horizontal>
+</div>
+
+<div class="loader" *ngIf="isLoading">
+  <img src="./assets/images/loader.svg" class="img-loader">
 </div>

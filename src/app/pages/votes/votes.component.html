@@ -1,6 +1,6 @@
-<div class="row justify-content-end">
-  <div class="col-md-4" *ngFor="let tech of technologies">
-    <div class="card" class="votes-card animate bounceInLeft">
+<div class="row">
+  <div class="col-md-4 animated fadeInLeft" *ngFor="let tech of technologies">
+    <div class="card" class="votes-card">
       <div class="card-body">
         <h5 class="card-title">{{ tech.name }}
           <small class="badge badge-primary">{{ tech.value }}</small>
@@ -10,4 +10,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="loader" *ngIf="isLoading">
+  <img src="./assets/images/loader.svg" class="img-loader">
 </div>

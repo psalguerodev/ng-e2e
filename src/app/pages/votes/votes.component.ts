@@ -12,10 +12,12 @@ export class VotesComponent implements OnInit, OnDestroy {
 
   technologies: Technology[] = [];
   techSubscription: Subscription;
+  isLoading: boolean;
 
   constructor(private readonly techService: TechnologiesService) {}
 
   ngOnInit() {
+    this.isLoading = true;
     this.techSubscription = this.techService.getTechnologies()
       .subscribe((techs: Technology[]) => this.handlerTechnologies(techs));
   }
@@ -27,6 +29,7 @@ export class VotesComponent implements OnInit, OnDestroy {
   }
 
   private handlerTechnologies(techs: Technology[]): void {
+    this.isLoading = false;
     this.technologies = [...techs].sort((a, b) => (a.value > b.value) ? -1 : 1);
   }
 

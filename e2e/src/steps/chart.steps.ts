@@ -14,6 +14,6 @@ Given(/^I am on the chart page$/, async () => {
 
 When(/^I do see the graphics$/, async () => {});
 
-Then(/^I should see the title of chart page$/, async () => {
+Then(/^I should see the title of chart page$/, { timeout: 10000 } ,async () => {
   expect(await page.getTextTitle()).to.equal('Frontend');
 });

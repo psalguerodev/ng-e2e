@@ -23,9 +23,12 @@ export class ChartComponent implements OnDestroy, OnInit {
   technologies: Technology[] = [];
   techSubscription: Subscription;
 
+  isLoading: boolean
+
   constructor(private readonly techService: TechnologiesService) {}
 
   ngOnInit() {
+    this.isLoading = true;
     this.techSubscription = this.techService.getTechnologies()
       .subscribe((techs: Technology[]) => this.handlerTechnologiesResponse(techs));
   }
@@ -38,6 +41,7 @@ export class ChartComponent implements OnDestroy, OnInit {
   }
 
   handlerTechnologiesResponse(techs: Technology[]) {
+    this.isLoading = false;
     this.technologies = [...techs];
   }
 
