@@ -16,5 +16,5 @@ Given(/^I am on the home page$/, async () => {
 When(/^I do nothing$/, () => {});
 
 Then(/^I should see the title$/, async () => {
-  expect(await page.getTitleText()).to.equal('e2e-with-angular app is running!');
+  expect(await page.getTitleText()).to.equal('Technologies');
 });

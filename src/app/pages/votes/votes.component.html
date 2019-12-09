@@ -1,0 +1,13 @@
+<div class="row justify-content-end">
+  <div class="col-md-4" *ngFor="let tech of technologies">
+    <div class="card" class="votes-card animate bounceInLeft">
+      <div class="card-body">
+        <h5 class="card-title">{{ tech.name }}
+          <small class="badge badge-primary">{{ tech.value }}</small>
+        </h5>
+        <p class="card-text">{{ tech.description }}</p>
+        <button type="button" class="btn btn-primary" (click)="voteTech(tech)">Vote!</button>
+      </div>
+    </div>
+  </div>
+</div>

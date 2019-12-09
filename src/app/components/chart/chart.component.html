@@ -1,0 +1,21 @@
+<div class="chart-container" *ngIf="technologies.length > 0">
+
+  <h3>Frontend</h3>
+
+  <ngx-charts-bar-horizontal
+    [scheme]="colorScheme"
+    [results]="technologies"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showGridLines]="false"
+    [showXAxisLabel]="showXAxisLabel"
+    [showDataLabel]="true"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    (select)="onSelect($event)"
+    class="my-chart">
+  </ngx-charts-bar-horizontal>
+</div>
