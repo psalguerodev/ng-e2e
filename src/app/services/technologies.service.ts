@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFirestore } from '@angular/fire/firestore'
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, VirtualTimeScheduler } from 'rxjs';
 
 export interface Technology {
@@ -24,24 +24,24 @@ export class TechnologiesService {
   getTechnologies(): Observable<Technology[]> {
     return this.db
       .collection<Technology>(this.technologyCollectionName)
-      .valueChanges()
+      .valueChanges();
   }
 
   createTechnology(technology: Technology): void {
-    technology.code = this.db.createId()
-    technology.value = 0
+    technology.code = this.db.createId();
+    technology.value = 0;
     this.db
       .collection(this.technologyCollectionName)
       .doc(technology.code)
-      .set(technology)
+      .set(technology);
   }
 
   voteForTechnology(technology: Technology): void {
-    technology.value += 1
+    technology.value += 1;
     this.db
       .collection(this.technologyCollectionName)
       .doc(technology.code)
-      .set(technology)
+      .set(technology);
   }
 
 }

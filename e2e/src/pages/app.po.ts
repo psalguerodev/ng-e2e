@@ -1,11 +1,16 @@
 import { browser, by, element } from 'protractor';
 
 export class AppPage {
-  navigateTo() {
-    return browser.get(browser.baseUrl + '/charts') as Promise<any>;
+
+  navigateTo(): Promise<any> {
+    return browser.get(browser.baseUrl) as Promise<any>;
   }
 
-  getTitleText() {
+  getTitleText(): Promise<string> {
     return element(by.id('title')).getText() as Promise<string>;
+  }
+
+  getHeadTitleText(): Promise<string> {
+    return browser.getTitle() as Promise<string>;
   }
 }

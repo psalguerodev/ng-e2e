@@ -1,39 +1,37 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TechnologiesService } from 'src/app/services/technologies.service';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { TechnologiesService } from 'src/app/services/technologies.service';
 import { Technology } from '../../services/technologies.service';
 
 @Component({
   selector: 'app-votes',
   templateUrl: './votes.component.html',
-  styleUrls: ['./votes.component.scss'],
-  providers: [AngularFirestore, TechnologiesService]
+  styleUrls: ['./votes.component.scss']
 })
 export class VotesComponent implements OnInit, OnDestroy {
 
-  technologies: Technology[] = []
-  techSubscription: Subscription
+  technologies: Technology[] = [];
+  techSubscription: Subscription;
 
   constructor(private readonly techService: TechnologiesService) {}
 
   ngOnInit() {
     this.techSubscription = this.techService.getTechnologies()
-      .subscribe((techs: Technology[]) => this.handlerTechnologies(techs))
+      .subscribe((techs: Technology[]) => this.handlerTechnologies(techs));
   }
 
   ngOnDestroy() {
     if (this.techSubscription) {
-      this.techSubscription.unsubscribe()
+      this.techSubscription.unsubscribe();
     }
   }
 
   private handlerTechnologies(techs: Technology[]): void {
-    this.technologies = [...techs].sort((a, b) => (a.value > b.value) ? -1 : 1)
+    this.technologies = [...techs].sort((a, b) => (a.value > b.value) ? -1 : 1);
   }
 
   voteTech(tech: Technology) {
-    this.techService.voteForTechnology(tech)
+    this.techService.voteForTechnology(tech);
   }
 
 }

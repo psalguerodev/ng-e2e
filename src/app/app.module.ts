@@ -12,6 +12,8 @@ import { ChartComponent } from './components/chart/chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import { TechnologiesService } from 'src/app/services/technologies.service';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,13 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [
+    AngularFirestore,
+    TechnologiesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
