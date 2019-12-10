@@ -1,9 +1,18 @@
-.votes-card {
+.votes-ul {
   background: #1b1e27;
-  border: 1px solid gray;
-  border-radius: 10px;
-  margin-top: 30px;
+  margin-top: 10px;
+  border-bottom: 1px solid #1e3144 !important;
 }
 .top-30 {
   margin-top: 30px;
+}
+.place {
+  border-radius: 100%;
+  margin-right: 5px;
+  width: 10px;
+  border: 1px solid #1e3144 !important;
+  background: #1e3144;
+  font-size: 16px;
+  text-align: center;
+  padding: 5px;
 }

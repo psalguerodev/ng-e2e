@@ -8,12 +8,12 @@ Before(() => {
   page = new ChartPage();
 });
 
-Given(/^I am on the chart page$/, async () => {
+Given(/^I am on the chart page$/, { timeout: 10000 }, async () => {
   await page.navigateTo();
 });
 
 When(/^I do see the graphics$/, async () => {});
 
-Then(/^I should see the title of chart page$/, { timeout: 10000 } ,async () => {
+Then(/^I should see the title of chart page$/, { timeout: 10000 } , async () => {
   expect(await page.getTextTitle()).to.equal('Frontend');
 });

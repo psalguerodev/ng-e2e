@@ -1,17 +1,19 @@
-<div class="row">
-  <div class="col-md-4 animated fadeInLeft" *ngFor="let tech of technologies">
-    <div class="card" class="votes-card">
-      <div class="card-body">
-        <h5 class="card-title">{{ tech.name }}
-          <small class="badge badge-primary">{{ tech.value }}</small>
-        </h5>
-        <p class="card-text">{{ tech.description }}</p>
-        <button type="button" class="btn btn-primary" (click)="voteTech(tech)">Vote!</button>
-      </div>
-    </div>
+<div class="row justify-content-center" *ngIf="!isLoading">
+  <div class="col-md-10">
+    <h5 class="top-30 text-secondary">Frontend</h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item votes-ul animated fadeIn" *ngFor="let tech of technologies; let i = index">
+
+        <span class="place">{{ i + 1 }}</span> {{ tech.name }} - {{ tech.description }} <span
+          class="badge badge-info">{{ tech.value }}</span>
+        <span class="float-right">
+          <button type="button" class="btn btn-outline-primary" (click)="voteTech(tech)">Like</button>
+        </span>
+      </li>
+    </ul>
   </div>
 </div>
 
 <div class="loader" *ngIf="isLoading">
-  <img src="./assets/images/loader.svg" class="img-loader">
+  <img src="./assets/images/loader.svg" class="img-loader" />
 </div>
